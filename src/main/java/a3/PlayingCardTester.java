@@ -31,43 +31,43 @@ public class PlayingCardTester {
             if (selection == 'A') {
                 PlayingCard playingCard = cardDeck.drawCard();
                 System.out.println(playingCard);
-            }if (selection == 'B') {
+            }
+            if (selection == 'B') {
             System.out.println(" Enter the numbers of cards for the hand: ");
             int numberOfCards = scanner.nextInt();
-            if (numberOfCards > 52 || numberOfCards > cardDeck.getSize()) {
-                System.out.println("Invalid number");
-                scanner.nextLine();
+                if (numberOfCards > 52 || numberOfCards > cardDeck.getSize()) {
+                    System.out.println("Invalid number");
+                    scanner.nextLine();
 
-            } else {
+                }
+                else {
                 hand = cardDeck.drawHand(numberOfCards, hand);
                 scanner.nextLine();
-                for (PlayingCard playingCard : hand) {
-                    System.out.println(playingCard);
-                }
+                    for (PlayingCard playingCard : hand) {
+                        System.out.println(playingCard);
+                    }
                 }
             }
 
             if (selection == 'C') {
                 cardDeck.printDeck();
-
             }
             if (selection == 'D') {
                 cardDeck.shuffleDeck();
-
             }
         } while (selection != '0');
     }
 
     public static void printInstructions() {
         System.out.println("=======================================================");
-        System.out.println("============    CARD DECK MENU ========================");
+        System.out.println("============    MENU    ============");
         System.out.println("\n0  - To exit");
         System.out.println("A  - Draw a card.");
         System.out.println("B  - Draw a Hand.");
         System.out.println("C  - Print the deck.");
         System.out.println("D  - Shuffle the deck.");
-        System.out.println("=                                                     =");
-        System.out.println("============ key selection below ======================");
+        System.out.println("=++++++++++++++++++++++++++++++++++++++++++++++++++++=");
+        System.out.println("enter selection below ");
 
     }
 }

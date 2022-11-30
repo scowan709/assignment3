@@ -1,3 +1,6 @@
+/**
+ * package containing all files for assignment 3
+ */
 package a3;
 
 
@@ -22,13 +25,20 @@ package a3;
  */
 public class PlayingCard {
 
+
     /**
      * Enums representing suits and values.
      */
-    public enum Suit {DIAMONDS, SPADES, CLUBS, HEARTS}
+    public enum Suit {
+        DIAMONDS, SPADES, CLUBS, HEARTS
+    // todo fix this
+    };
 
-    ;
 
+
+    /**
+     * dont use enum for this
+     */
     public enum CardFace {
         Ace("A"),
         Two("2"),
@@ -48,9 +58,7 @@ public class PlayingCard {
         CardFace(String value) {
             this.value = value;
         }
-    }
-
-    ;
+    };
 
     private CardFace faceValue;
     private Suit suit;
