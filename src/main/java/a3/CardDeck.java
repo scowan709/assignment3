@@ -30,7 +30,7 @@ public class CardDeck {
      */
     public CardDeck() {
         for (PlayingCard.Suit suit : PlayingCard.Suit.values()) {
-            for (PlayingCard.faceValue cardFace : PlayingCard.CardFace.values()) {
+            for (PlayingCard.getSuitStringValue(): PlayingCard.faceValue.values()) {
                 PlayingCard playingCard = new PlayingCard(cardFace, suit);
                 deck.add(playingCard);
             }
@@ -41,7 +41,7 @@ public class CardDeck {
     //method to reset deck
     private void reset() {
         for (PlayingCard.Suit suit : PlayingCard.Suit.values()) {
-            for (PlayingCard.CardFace cardFace : PlayingCard.CardFace.values()) {
+            for (PlayingCard.getFaceValue : PlayingCard.CardFace.values()) {
                 PlayingCard playingCard = new PlayingCard(cardFace, suit);
                 deck.add(playingCard);
             }

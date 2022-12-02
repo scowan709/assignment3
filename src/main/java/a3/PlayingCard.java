@@ -4,6 +4,8 @@
 package a3;
 
 
+import java.util.HashMap;
+
 /**
  * <pre>
  * Create a class called ‘PlayingCard’ that does the following:
@@ -26,6 +28,8 @@ package a3;
 public class PlayingCard {
 
 
+    private final int faceValue;
+
     /**
      * Enums representing suits and values.
      */
@@ -41,7 +45,7 @@ public class PlayingCard {
     public static final int JACK = 11;
 
 
-    private final int faceValue;
+
     private final Suit suit;
 
 
