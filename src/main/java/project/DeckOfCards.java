@@ -16,15 +16,24 @@ import java.util.Collections;
 public class DeckOfCards {
 
     //cards stored in a list. top of deck is the first in the list
-    private ArrayList<PlayingCard> PlayingCardArrayList;
+    private ArrayList<PlayingCard> playingCardArrayList;
 
     /**
      * initialize the deck with 52 cards as defind in playing card factory
      */
-    public DeckOfCards() {
-        this.PlayingCardArrayList = PlayingCardFactory.;
+    public DeckOfCards(){
+        playingCardArrayList = new ArrayList<>();
+        for (int i = 2; i <= 14; i++) {
+            playingCardArrayList.add(new PlayingCard(i, PlayingCard.Suit.DIAMONDS));
+        }
+        for (int i = 2; i < 14; i++) {
+            playingCardArrayList.add(new PlayingCard(i, PlayingCard.Suit.HEARTS));
+        }
+        for (int i = 2; i < 14; i++) {
+            playingCardArrayList.add(new PlayingCard(i, PlayingCard.Suit.CLUBS));
+        }
+        for (int i = 2; i < 14; i++) {
+            playingCardArrayList.add(new PlayingCard(i, PlayingCard.Suit.SPADES));
+        }
     }
-
-
-
 }

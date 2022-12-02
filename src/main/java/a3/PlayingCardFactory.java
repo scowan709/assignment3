@@ -14,8 +14,7 @@ import java.util.Random;
  */
 public class PlayingCardFactory {
 
-    private static final int facesLength = PlayingCard.CardFace.values().length;
-    private static final int suitsLength = PlayingCard.Suit.values().length;
+
 
     /**
      * generate a random playing card.
@@ -23,19 +22,33 @@ public class PlayingCardFactory {
      */
     public static PlayingCard generatePlayingCard() {
         Random random = new Random();
-        return new PlayingCard(PlayingCard.CardFace.values()[random.nextInt(facesLength)],
-                PlayingCard.Suit.values()[random.nextInt(suitsLength)]);
+        int r = random.nextInt(3);
+        if (r == 0){
+            return generatePlayingCard(PlayingCard.Suit.DIAMONDS);
+        } else if (r == 1){
+            return generatePlayingCard(PlayingCard.Suit.HEARTS);
+        } else if (r == 2){
+            return generatePlayingCard(PlayingCard.Suit.SPADES);
+        } else {
+            return generatePlayingCard(PlayingCard.Suit.CLUBS);
+        }
     }
 
-    /**
-     * generate random playing card based on suit
-     * @param suit
-     * @return random card of a selected suit.
-     */
-    public static PlayingCard generatePlayingCardFromSuit(PlayingCard.Suit suit) {
+    private static PlayingCard generatePlayingCard(PlayingCard.Suit suit) {
         Random random = new Random();
-        return new PlayingCard(PlayingCard.CardFace.values()[random.nextInt(facesLength)],
-                suit);
+        int r = random.nextInt(13) + 2;
+        return new PlayingCard(r, suit);
     }
+
+//    /**
+//     * generate random playing card based on suit
+//     * @param suit
+//     * @return random card of a selected suit.
+//     */
+//    public static PlayingCard generatePlayingCardFromSuit(PlayingCard.Suit suit) {
+//        Random random = new Random();
+//        return new PlayingCard(PlayingCard..values()[random.nextInt(facesLength)],
+//                suit);
+//    }
 
 }

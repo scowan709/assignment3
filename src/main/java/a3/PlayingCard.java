@@ -29,39 +29,20 @@ public class PlayingCard {
     /**
      * Enums representing suits and values.
      */
-    public enum Suit {
-        DIAMONDS, SPADES, CLUBS, HEARTS
-    // todo fix this
-    };
 
-
+    public enum Suit {HEARTS, DIAMONDS, SPADES, CLUBS};
 
     /**
-     * dont use enum for this
+     * don't use enum for this
      */
-    public enum CardFace {
-        Ace("A"),
-        Two("2"),
-        Three("3"),
-        Four("4"),
-        Five("5"),
-        Six("6"),
-        Seven("7"),
-        Eight("8"),
-        Nine("9"),
-        Ten("10"),
-        Jack("J"),
-        Queen("Q"),
-        King("K");
-        String value;
+    public static final int ACE = 1;
+    public static final int KING = 13;
+    public static final int QUEEN = 12;
+    public static final int JACK = 11;
 
-        CardFace(String value) {
-            this.value = value;
-        }
-    };
 
-    private CardFace faceValue;
-    private Suit suit;
+    private final int faceValue;
+    private final Suit suit;
 
 
     /**
@@ -71,7 +52,7 @@ public class PlayingCard {
      * @param faceValue
      * @param suit
      */
-    public PlayingCard(CardFace faceValue, Suit suit) {
+    public PlayingCard(int faceValue, Suit suit) {
         this.faceValue = faceValue;
         this.suit = suit;
     }
@@ -80,7 +61,7 @@ public class PlayingCard {
      * getter for value
      * @return faceValue
      */
-    public CardFace getFaceValue() {
+    public int getFaceValue() {
         return faceValue;
     }
 
@@ -91,6 +72,7 @@ public class PlayingCard {
     public Suit getSuit() {
         return suit;
     }
+
 
     /**
      * method that uses if else statements to return ASCII characters based on card suits.
@@ -118,8 +100,17 @@ public class PlayingCard {
      */
     @Override
     public String toString() {
-        return this.faceValue.value + getSuitStringValue(this.getSuit());
+        if(this.faceValue == ACE){
+            return "A" + getSuitStringValue(this.getSuit());
+        } else if(this.faceValue == KING){
+            return "K" + getSuitStringValue(this.getSuit());
+        }else if(this.faceValue == QUEEN){
+            return "Q" + getSuitStringValue(this.getSuit());
+        }else if(this.faceValue == JACK){
+            return "J" + getSuitStringValue(this.getSuit());
+        }else return this.faceValue + getSuitStringValue(this.getSuit());
     }
+
 }
 
 

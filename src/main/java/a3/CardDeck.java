@@ -30,7 +30,7 @@ public class CardDeck {
      */
     public CardDeck() {
         for (PlayingCard.Suit suit : PlayingCard.Suit.values()) {
-            for (PlayingCard.CardFace cardFace : PlayingCard.CardFace.values()) {
+            for (PlayingCard.faceValue cardFace : PlayingCard.CardFace.values()) {
                 PlayingCard playingCard = new PlayingCard(cardFace, suit);
                 deck.add(playingCard);
             }
@@ -82,7 +82,7 @@ public class CardDeck {
         }
         ArrayList<PlayingCard> toRemove = new ArrayList<PlayingCard>();
         for (int i = 0; i < numberOfCardsToBeAdded; i++) {
-            PlayingCard playingCard = PlayingCardFactory.generatePlayingCard();
+            PlayingCard playingCard = PlayingCardFactory.generatePlayingCard(PlayingCard.Suit.DIAMONDS);
             for (PlayingCard newPlayingCard : deck) {
                 if (newPlayingCard.getSuit() == playingCard.getSuit() &&
                         newPlayingCard.getFaceValue() == playingCard.getFaceValue()) {
@@ -119,7 +119,7 @@ public class CardDeck {
         if (deck.isEmpty()) {
             this.reset();
         }
-        PlayingCard playingCard = PlayingCardFactory.generatePlayingCard();
+        PlayingCard playingCard = PlayingCardFactory.generatePlayingCard(PlayingCard.Suit.DIAMONDS);
         ArrayList<PlayingCard> removeCard = new ArrayList<PlayingCard>();
         removeCard.add(playingCard);
         deck.removeAll(removeCard);
