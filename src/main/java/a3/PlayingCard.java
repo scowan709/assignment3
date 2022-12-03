@@ -61,7 +61,7 @@ public class PlayingCard {
      * getter for value
      * @return faceValue
      */
-    public int getFaceValue() {
+    public static int getFaceValue() {
         return faceValue;
     }
 
