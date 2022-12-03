@@ -21,7 +21,7 @@ public class DeckOfCards {
     private static final int FULL_DECK_SIZE = 52;
 
     /**
-     * initialize the deck with 52 cards as defind in playing card factory
+     * initialize the deck with 52 cards as defined in playing card factory
      */
     public DeckOfCards(){
         this.playingCardArrayList = PlayingCardFactory.generatePlayingCardDeckList();
