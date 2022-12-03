@@ -1,19 +1,35 @@
 package a3;
 
 
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
  * <pre>
  *   a class called “PlayingCardFactory” that has the following methods:
- * • Generate Random Card (static)
- * • Generate Random Card from a suit (static)
+ *   Generate Random Card (static)
+ *   Generate Random Card from a suit (static)
  * </pre>
  *
  * @author 20119690
  */
 public class PlayingCardFactory {
-
+    public static ArrayList<PlayingCard> generatePlayingCardDeckList() {
+        ArrayList<PlayingCard> playingCardArrayList = new ArrayList<>();
+        for (int i = 2; i < 15; i++) {
+            playingCardArrayList.add(new PlayingCard(i, PlayingCard.Suit.DIAMONDS));
+        }
+        for (int i = 2; i < 15; i++) {
+            playingCardArrayList.add(new PlayingCard(i, PlayingCard.Suit.HEARTS));
+        }
+        for (int i = 2; i < 15; i++) {
+            playingCardArrayList.add(new PlayingCard(i, PlayingCard.Suit.CLUBS));
+        }
+        for (int i = 2; i < 15; i++) {
+            playingCardArrayList.add(new PlayingCard(i, PlayingCard.Suit.SPADES));
+        }
+        return playingCardArrayList;
+    }
 
 
     /**
@@ -36,9 +52,12 @@ public class PlayingCardFactory {
 
     private static PlayingCard generatePlayingCard(PlayingCard.Suit suit) {
         Random random = new Random();
-        int r = random.nextInt(13) + 2;
+        int r = random.nextInt(13);
         return new PlayingCard(r, suit);
     }
+
+
+
 
 //    /**
 //     * generate random playing card based on suit

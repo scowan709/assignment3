@@ -26,10 +26,6 @@ import java.util.HashMap;
  * @author: 20119690
  */
 public class PlayingCard {
-
-
-    private final int faceValue;
-
     /**
      * Enums representing suits and values.
      */
@@ -39,14 +35,14 @@ public class PlayingCard {
     /**
      * don't use enum for this
      */
-    public static final int ACE = 1;
+
+    public static final int ACE = 14;
     public static final int KING = 13;
     public static final int QUEEN = 12;
     public static final int JACK = 11;
 
-
-
     private final Suit suit;
+    private final int faceValue;
 
 
     /**
@@ -104,15 +100,15 @@ public class PlayingCard {
      */
     @Override
     public String toString() {
-        if(this.faceValue == ACE){
+        if(faceValue == ACE){
             return "A" + getSuitStringValue(this.getSuit());
-        } else if(this.faceValue == KING){
+        } else if(faceValue == KING){
             return "K" + getSuitStringValue(this.getSuit());
-        }else if(this.faceValue == QUEEN){
+        }else if(faceValue == QUEEN){
             return "Q" + getSuitStringValue(this.getSuit());
-        }else if(this.faceValue == JACK){
+        }else if(faceValue == JACK){
             return "J" + getSuitStringValue(this.getSuit());
-        }else return this.faceValue + getSuitStringValue(this.getSuit());
+        }else return faceValue + getSuitStringValue(this.getSuit());
     }
 
 }
