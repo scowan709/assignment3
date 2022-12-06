@@ -4,70 +4,42 @@ import a3.PlayingCard;
 
 import java.io.PrintStream;
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class HandOfCards {
 
 
-
+    DeckOfCards deckOfCards = new DeckOfCards();
     private static ArrayList<PlayingCard> hand;
-    private int  calculateTotal;
-
-    //Collections.shuffle(hand);
-    public HandOfCards(ArrayList<PlayingCard> hand, int calculateTotal) {
-        this.hand = hand;
-        this.calculateTotal = calculateTotal;
+    /**
+     * Create a hand that is initially empty.
+     */
+    public HandOfCards() {
+        hand = new ArrayList<PlayingCard>();
     }
 
-    public ArrayList<PlayingCard> getHand() {
-        return hand;
+    public void clear() {
+        hand.clear();
     }
 
-    public void setHand(ArrayList<PlayingCard> hand) {
-        this.hand = hand;
+    public static void addCard(PlayingCard playingCard) {
+        hand.add(playingCard);
     }
 
-    public int getCalculateTotal() {
-        return calculateTotal;
+    /**
+     * https://math.hws.edu/javanotes/source/chapter5/Hand.java
+     * try some of this!
+     * @param printStream
+     */
+
+
+
+
+    public static void printHand(PrintStream printStream) {
+        for (Object playingCard : hand) {
+            printStream.printf("%s ", playingCard.toString(), hand.indexOf(playingCard));
+        }
     }
 
-    public void setCalculateTotal(int calculateTotal) {
-        this.calculateTotal = calculateTotal;
-    }
-
-    public static int calculateTotal(){
-        int total = 0;
-        int value = 0;
-//        for(PlayingCard in hand){
-//            value += PlayingCard.getFaceValue();}
-        return total;
-    }
-
-
-
-    public void addCard() {
-
-    }
-
-    public void flushHand(){
-
-    };
-    public int numberOfCards(){
-
-        return 0;
-    };
-    public boolean hasAce(){
-
-        return false;
-    };
-    public boolean isBust(){
-
-        return false;
-    };
-    public void printHand(PrintStream printStream){
-
-    };
-    public void PrintHand(PrintStream printStream, boolean hideFirstCard){
-
-    }
 }
+
+
