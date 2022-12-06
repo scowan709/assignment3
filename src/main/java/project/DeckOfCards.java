@@ -45,7 +45,7 @@ public class DeckOfCards {
     }
 
     /**
-     * 
+     *
      */
     public void printDeck(PrintStream printStream) {
         for (PlayingCard playingCard : this.playingCardArrayList) {
