@@ -21,7 +21,6 @@ public class HandOfCards {
         for (PlayingCard playingCard : this.hand){
             total += playingCard.getFaceValue();
         }
-        int calculateHand;
         System.out.printf(""+ total);
     }
 
