@@ -8,20 +8,28 @@ import java.util.ArrayList;
 public class HandOfCards {
 
 
-    DeckOfCards deckOfCards = new DeckOfCards();
-    private static ArrayList<PlayingCard> hand;
+    private ArrayList<PlayingCard> hand;
+
     /**
      * Create a hand that is initially empty.
      */
     public HandOfCards() {
         hand = new ArrayList<PlayingCard>();
     }
+    public void calculateHand(){
+        int total = 0;
+        for (PlayingCard playingCard : this.hand){
+            total += playingCard.getFaceValue();
+        }
+        int calculateHand;
+        System.out.printf(""+ total);
+    }
 
     public void clear() {
         hand.clear();
     }
 
-    public static void addCard(PlayingCard playingCard) {
+    public void addCard(PlayingCard playingCard) {
         hand.add(playingCard);
     }
 
@@ -34,9 +42,9 @@ public class HandOfCards {
 
 
 
-    public static void printHand(PrintStream printStream) {
-        for (Object playingCard : hand) {
-            printStream.printf("%s ", playingCard.toString(), hand.indexOf(playingCard));
+    public void printHand(PrintStream printStream) {
+        for (PlayingCard playingCard : this.hand) {
+            printStream.printf("%s", playingCard.toString(), hand.indexOf(playingCard));
         }
     }
 

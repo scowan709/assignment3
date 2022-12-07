@@ -36,7 +36,7 @@ public class PlayingCardFactory {
      * generate a random playing card.
      * @return Playing Card
      */
-    public static PlayingCard generatePlayingCard() {
+    public PlayingCard generatePlayingCard() {
         Random random = new Random();
         int r = random.nextInt(3);
         if (r == 0){
