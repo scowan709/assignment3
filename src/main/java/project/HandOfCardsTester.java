@@ -29,8 +29,14 @@ public class HandOfCardsTester {
                 System.out.println("add a card: ");
                 hand.addCard(deck.drawCard());
                 hand.printHand(System.out);
-                System.out.println("\n total: ");
-                hand.calculateHand();
+                System.out.printf("\n total:%s ", hand.calculateHand());
+                if (hand.isBust()){
+                    System.out.println("\nplayer busts");
+                    hand.clear();
+                }
+                if (hand.hasAce()){
+                    System.out.println("\nhand has an ace");
+                }
 
             } else if (c=='B') {
                 System.out.println("Clear hand \n");

@@ -16,12 +16,15 @@ public class HandOfCards {
     public HandOfCards() {
         hand = new ArrayList<PlayingCard>();
     }
-    public void calculateHand(){
+    public int calculateHand(){
         int total = 0;
         for (PlayingCard playingCard : this.hand){
             total += playingCard.getFaceValue();
         }
-        System.out.printf(""+ total);
+        if(isBust() && hasAce()){
+            total -=10;
+        }
+        return total;
     }
 
     public void clear() {
@@ -34,10 +37,20 @@ public class HandOfCards {
 
     /**
      * https://math.hws.edu/javanotes/source/chapter5/Hand.java
-     * try some of this!
-     * @param printStream
      */
 
+    public boolean isBust(){
+        return calculateHand() > 21;
+    }
+
+    public boolean hasAce(){
+        for(PlayingCard playingCard : this.hand){
+            if (playingCard.getFaceValue() == 14){
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 
@@ -46,6 +59,13 @@ public class HandOfCards {
             printStream.printf("%s", playingCard.toString(), hand.indexOf(playingCard));
         }
     }
+
+//    public void printHand(PrintStream, boolean hideFirstCard){
+//        for (PlayingCard playingCard : this.hand) {
+//            if(hand.indexOf(playingCard) == 0){
+//            }
+//        }
+//    }
 
 }
 
