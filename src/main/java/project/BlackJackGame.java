@@ -91,22 +91,29 @@ public class BlackJackGame {
     }
     public void printGameStatus(PrintStream printStream, boolean hideDealer){
         printStream.print("\nDEALER: \t");
-        dealer.getHandOfCards().printHand(printStream, true);
+        dealer.getHandOfCards().printHand(printStream, false);
         printStream.print("\nPLAYER: \t");
         player.getHandOfCards().printHand(printStream);
     }
 
     /**
-     * print result based on who wins
+     * print result based on whom wins
      * @param printStream
      */
     public void printRoundResult(PrintStream printStream){
-        printStream.println("\n hand is over: \t");
-        if(this.player.getHandOfCards().isBust() || (this.dealer.getHandOfCards().calculateHand() >= this.player.getHandOfCards().calculateHand() && !this.dealer.getHandOfCards().isBust())
-        ){
-            printStream.println("DEALER WINS!");
+        printStream.println("\n ROUND OVER: \t");
+        if(!this.player.getHandOfCards().isBust() ||
+                this.dealer.getHandOfCards().isBust() && (this.player.getHandOfCards().calculateHand() >= this.dealer.getHandOfCards().calculateHand())
+        ){printStream.println("\nPLAYER WINS !1");
+        }else if(this.player.getHandOfCards().isBust()){
+            printStream.println("\nplayer busts\ndealer wins1");
+        }
+        else if (this.player.getHandOfCards().twentyone()){
+            printStream.println("\nPLAYER WINS! BLACKJACK1");
+        }else if (this.player.getHandOfCards().calculateHand() == this.dealer.getHandOfCards().calculateHand()){
+            printStream.println("\nDEALER WINS!1");
         }else {
-            printStream.println("PLAYER WINS");
+            printStream.println("\n dealer wins");
         }
     }
 }

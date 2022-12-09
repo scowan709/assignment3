@@ -45,7 +45,7 @@ public class DeckOfCards {
     }
 
     /**
-     *
+     *prints the deck
      */
     public void printDeck(PrintStream printStream) {
         for (PlayingCard playingCard : this.playingCardArrayList) {
@@ -57,6 +57,10 @@ public class DeckOfCards {
             printStream.printf("%s ", playingCard.toString(), playingCardArrayList.indexOf(playingCard));
         }
     }
+
+    /**
+     * shuffles the deck
+     */
     public void shuffleDeck() {
         if (playingCardArrayList.isEmpty()) {
             this.reset();

@@ -1,5 +1,6 @@
 package project;
 
+import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
@@ -29,8 +30,10 @@ public class BlackJackApplication {
                 int bet = Integer.parseInt(input.next());
                 if(bet > blackJackGame.getPlayer().getChips()){
                     System.out.println("you cant bet that much");
-                } else if (bet < blackJackGame.getPlayer().getChips() ){}
-                        //blackJackGame.getGameStatus()//) {
+                } else if (bet < blackJackGame.getPlayer().getChips() ){
+                    blackJackGame.getPlayer().setChips(-bet);
+                }
+
 
             }
 
@@ -44,7 +47,7 @@ public class BlackJackApplication {
         System.out.println("\nMAKE YOUR CHOICE\n");
 
         System.out.println("A: PLAY HAND");
-        System.out.println("C: CHANGE BET");
+        System.out.println("B: CHANGE BET");
         System.out.println("Q: EXIT");
     }
 
@@ -61,14 +64,20 @@ public class BlackJackApplication {
         do{
             blackJackGame.printGameStatus(System.out, true);
             if(blackJackGame.getPlayer().getHandOfCards().isBust()){
-                System.out.println("PLAYER BUSTS");
+                System.out.println("PLAYER BUSTS  \t");
                 blackJackGame.setGameStatus(BlackJackGame.GameStatus.ROUND_OVER);
-            }else {
+            }
+            else if (blackJackGame.getPlayer().getHandOfCards().twentyone()) {
+                System.out.println("BLACKJACK PLAYER WINS\t");
+                blackJackGame.setGameStatus(BlackJackGame.GameStatus.ROUND_OVER);
+            }
+            else {
                 System.out.printf("\nH to hit | S to stay\n");
                 c= Character.toUpperCase(input.next().charAt(0));
                 if(c=='H'){
                     blackJackGame.hitPlayer();
-                }else if(c=='S'){
+                }
+                else if(c=='S'){
                     blackJackGame.setGameStatus(BlackJackGame.GameStatus.DEALERS_TURN);
                 }
             }
@@ -82,10 +91,15 @@ public class BlackJackApplication {
                 blackJackGame.setGameStatus(BlackJackGame.GameStatus.ROUND_OVER);
             }
             if(blackJackGame.getDealer().getHandOfCards().calculateHand() < blackJackGame.getPlayer().getHandOfCards().calculateHand()){
-                System.out.printf("DEALER HITS");
+                System.out.printf("\n\tDEALER HITS");
                 blackJackGame.hitDealer();
+                if(blackJackGame.getDealer().getHandOfCards().isBust()){
+                    System.out.println("\nDEALER BUSTS \n PLAYER WINS!");
+                    blackJackGame.setGameStatus(BlackJackGame.GameStatus.ROUND_OVER);
+                }
             }else{
                 blackJackGame.setGameStatus(BlackJackGame.GameStatus.ROUND_OVER);
+                //System.out.printf("\nDEALER WINS");
             }
         }
         blackJackGame.printRoundResult(System.out);

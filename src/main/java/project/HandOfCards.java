@@ -68,20 +68,27 @@ public class HandOfCards {
     public int calculateHand(){
         int total = 0;
         for (PlayingCard playingCard : this.hand){
-            total += playingCard.getFaceValue();
+            total += playingCard.getBlackjackValue();
         }
         if(total >21 && this.hasAce()){
-            total =0;
+            int over21 = total - 21;
             for (PlayingCard playingCard : this.hand){
-                total +=1;
+                if(playingCard.getFaceValue() == PlayingCard.ACE && over21 > 0){
+                    total += 1;
+                    over21 -= 10;
+                }else{
+                    total += playingCard.getBlackjackValue();
+                }
             }
-        } else {
-            //total += PlayingCard.getFaceValue();
         }
-
         return total;
     }
 
+
+
+    public boolean twentyone(){
+        return calculateHand() == 21;
+    }
     /**
      * print cards in hand
      * @param printStream
@@ -91,15 +98,18 @@ public class HandOfCards {
     }
 
     /**
-     * also print cards in hand, but blackjack reqires hiding the dealers first card
+     * also print cards in hand, but blackjack requires hiding the dealers first card
      * @param printStream
      * @param hideFirstCard
      */
     public void printHand(PrintStream printStream, boolean hideFirstCard){
-        if(!hideFirstCard){
-            for(PlayingCard playingCard : hand){
-                printStream.printf("%s ", playingCard.toString());
-            }
+
+        for(PlayingCard playingCard : hand){
+            if(hand.indexOf(playingCard) == 0 && hideFirstCard) {
+                printStream.printf("??");
+            }else{
+            printStream.printf("%s ", playingCard.toString());}
+
         }
     }
 

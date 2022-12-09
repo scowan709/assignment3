@@ -30,7 +30,10 @@ public class HandOfCardsTester {
                 hand.addCard(deck.drawCard());
                 hand.printHand(System.out);
                 System.out.printf("\n total:%s ", hand.calculateHand());
-
+                if (hand.isBust()){
+                    System.out.println("\nplayer busts");
+                    hand.clear();
+                }
                 if (hand.hasAce()){
                     System.out.println("\nhand has an ace");
                 }
