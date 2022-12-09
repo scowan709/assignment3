@@ -1,22 +1,31 @@
 package project;
 
+/**
+ * player class used for both dealer and user
+ *
+ */
 public class Player {
-    private int bank;
+    private int chips;
+    private HandOfCards handOfCards;
 
-    public void setBank(int bank) {
-        this.bank = 100;
+    /**
+     * players have a bank of chips and a hand of cards
+     * @param chips
+     */
+    public Player(int chips) {
+        this.chips = chips;
+        this.handOfCards = new HandOfCards();
     }
 
-    public int getBank() {
-        return bank;
+    public int getChips() {
+        return chips;
     }
 
-    public Player(int bank){
-
-    }
-    public HandOfCards getHandOfCards(){
-
-        return new HandOfCards();
+    public void setChips(int chips) {
+        this.chips = chips;
     }
 
+    public HandOfCards getHandOfCards() {
+        return handOfCards;
+    }
 }

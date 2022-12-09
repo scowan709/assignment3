@@ -73,6 +73,19 @@ public class PlayingCard {
         return suit;
     }
 
+    public int getBlackjackValue(){
+        if(this.faceValue == JACK){
+            return 10;
+        } else if (this.faceValue == QUEEN) {
+            return 10;
+        } else if (this.faceValue == KING) {
+            return 10;
+        } else if (this.faceValue == ACE){
+            return 11;
+        }else {
+            return this.faceValue;
+        }
+    }
 
     /**
      * method that uses if else statements to return ASCII characters based on card suits.
